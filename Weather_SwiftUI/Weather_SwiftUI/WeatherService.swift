@@ -6,6 +6,7 @@
 //
 import CoreLocation
 import Foundation
+import SwiftUI
 
 
 public final class WeatherService: NSObject {
@@ -19,9 +20,14 @@ public final class WeatherService: NSObject {
         locationManager.startUpdatingLocation()
     }
     
+    public override init() {
+        super.init()
+        locationManager.delegate = self
+    }
+    
     //api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
     public func makeDataRequest(forCoordinates coordinates: CLLocationCoordinate2D) {
-        guard let urlString = "api.openweathermap.org/data/2.5/weather?lat=\(coordinates.latitude)&lon=]\(coordinates.longitude)&appid=\(API_KEY)&units=metric".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
+        guard let urlString = "https://api.openweathermap.org/data/2.5/weather?lat=\(coordinates.latitude)&lon=\(coordinates.longitude)&appid=\(API_KEY)&units=metric".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
         guard let url = URL(string: urlString) else { return }
         
         URLSession.shared.dataTask(with: url) { data, response, error in
@@ -31,6 +37,17 @@ public final class WeatherService: NSObject {
             }
         }
         .resume()
+    }
+}
+
+
+extension WeatherService: CLLocationManagerDelegate {
+    public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.first else { return }
+        makeDataRequest(forCoordinates: location.coordinate)
+    }
+    public func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("Something went wrong: \(error.localizedDescription)")
     }
 }
 

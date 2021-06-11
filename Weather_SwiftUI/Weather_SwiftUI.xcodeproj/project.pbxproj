@@ -13,6 +13,7 @@
 		C6BD4FA9267343A0003C7B51 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6BD4FA8267343A0003C7B51 /* Preview Assets.xcassets */; };
 		C6BD4FB126734427003C7B51 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BD4FB026734427003C7B51 /* WeatherService.swift */; };
 		C6BD4FB326734880003C7B51 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BD4FB226734880003C7B51 /* Weather.swift */; };
+		C6BD4FB526736FCF003C7B51 /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BD4FB426736FCF003C7B51 /* WeatherViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		C6BD4FAA267343A0003C7B51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C6BD4FB026734427003C7B51 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
 		C6BD4FB226734880003C7B51 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		C6BD4FB426736FCF003C7B51 /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				C6BD4FA126734388003C7B51 /* Weather_SwiftUIApp.swift */,
 				C6BD4FA326734388003C7B51 /* WeatherView.swift */,
+				C6BD4FB426736FCF003C7B51 /* WeatherViewModel.swift */,
 				C6BD4FB026734427003C7B51 /* WeatherService.swift */,
 				C6BD4FA5267343A0003C7B51 /* Assets.xcassets */,
 				C6BD4FAA267343A0003C7B51 /* Info.plist */,
@@ -144,6 +147,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6BD4FB526736FCF003C7B51 /* WeatherViewModel.swift in Sources */,
 				C6BD4FB326734880003C7B51 /* Weather.swift in Sources */,
 				C6BD4FA426734388003C7B51 /* WeatherView.swift in Sources */,
 				C6BD4FB126734427003C7B51 /* WeatherService.swift in Sources */,
