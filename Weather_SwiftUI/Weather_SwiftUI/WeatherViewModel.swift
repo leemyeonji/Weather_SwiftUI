@@ -10,20 +10,20 @@ import SwiftUI
 
 let defaultIcon = "cloud.fill"
 
-enum IconMap: String, CaseIterable {
-    case Drizzle = "cloud.snow.fill"
-    case Thunderstorm = "cloud.bolt.fill"
-    case Rain = "cloud.rain.fill"
-    case Snow = "snow"
-    case Clear = "sun.max.fill"
-    case Clouds = "smoke.fill"
-}
+let iconMap = [
+    "Drizzle" : "cloud.snow.fill",
+    "Thunderstorm" : "cloud.bolt.fill",
+    "Rain" : "cloud.rain.fill",
+    "Snow" : "snow",
+    "Clear" : "sun.max.fill",
+    "Clouds" : "smoke.fill"
+]
 
 public class WeatherViewModel : ObservableObject {
     @Published var cityName: String = "City Name"
     @Published var temperature: String = "--℃"
     @Published var weatherDescription: String = "--"
-    @Published var weatherIcon = defaultIcon
+    @Published var weatherIcon = Image(systemName: defaultIcon)
     
     public let weatherService: WeatherService
     
@@ -36,8 +36,8 @@ public class WeatherViewModel : ObservableObject {
             DispatchQueue.main.async {
                 self.cityName = weather.city
                 self.temperature = "\(weather.temperature)℃"
-                self.weatherDescription = weather.description
-                self.weatherIcon = "\(IconMap.allCases.filter{ $0.rawValue == weather.iconName})"
+                self.weatherDescription = weather.description.uppercased()
+                self.weatherIcon = Image(systemName: iconMap[weather.iconName]!) 
             }
         }
     }

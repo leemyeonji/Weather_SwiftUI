@@ -18,11 +18,10 @@ struct WeatherView: View {
             Text(viewModel.temperature)
                 .font(.system(size: 70))
                 .bold()
-            Image(systemName: viewModel.weatherIcon)
-                .renderingMode(.original)
-                .font(.largeTitle)
-                .foregroundColor(.yellow)
-                .frame(width: 80, height: 80)
+            viewModel.weatherIcon
+                .font(.system(size: 120))
+                .foregroundColor(LinearGradient(gradient: Gradient(colors: [Color.red, Color.blue]), startPoint: .topTrailing, endPoint: .bottomTrailing))
+                .padding()
             Text(viewModel.weatherDescription)
         }
         .onAppear(perform: {
