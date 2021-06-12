@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C68F4E152674F305001E0A7F /* ClearBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68F4E142674F305001E0A7F /* ClearBackground.swift */; };
 		C6BD4FA226734388003C7B51 /* Weather_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BD4FA126734388003C7B51 /* Weather_SwiftUIApp.swift */; };
 		C6BD4FA426734388003C7B51 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BD4FA326734388003C7B51 /* WeatherView.swift */; };
 		C6BD4FA6267343A0003C7B51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6BD4FA5267343A0003C7B51 /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C68F4E142674F305001E0A7F /* ClearBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearBackground.swift; sourceTree = "<group>"; };
 		C6BD4F9E26734387003C7B51 /* Weather_SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather_SwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6BD4FA126734388003C7B51 /* Weather_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather_SwiftUIApp.swift; sourceTree = "<group>"; };
 		C6BD4FA326734388003C7B51 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 				C6BD4FA126734388003C7B51 /* Weather_SwiftUIApp.swift */,
 				C6BD4FA326734388003C7B51 /* WeatherView.swift */,
 				C6BD4FB426736FCF003C7B51 /* WeatherViewModel.swift */,
+				C68F4E142674F305001E0A7F /* ClearBackground.swift */,
 				C6BD4FB026734427003C7B51 /* WeatherService.swift */,
 				C6BD4FA5267343A0003C7B51 /* Assets.xcassets */,
 				C6BD4FAA267343A0003C7B51 /* Info.plist */,
@@ -152,6 +155,7 @@
 				C6BD4FA426734388003C7B51 /* WeatherView.swift in Sources */,
 				C6BD4FB126734427003C7B51 /* WeatherService.swift in Sources */,
 				C6BD4FA226734388003C7B51 /* Weather_SwiftUIApp.swift in Sources */,
+				C68F4E152674F305001E0A7F /* ClearBackground.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
