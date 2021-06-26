@@ -89,6 +89,7 @@ struct WeatherView: View {
             .padding()
             .onAppear{
                 viewModel.refresh()
+                locationVM.fetching()
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)

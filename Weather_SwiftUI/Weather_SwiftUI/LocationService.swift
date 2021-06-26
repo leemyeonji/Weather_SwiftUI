@@ -12,7 +12,7 @@ import SwiftUI
 public final class LocationService: NSObject  {
     private let locationManager = CLLocationManager()
     private var completionHandler: ((Location) -> Void)?
-    private let header = "KakaoAK 2f49cbfe2d302c9668abbffe4a6e6bc8"
+    //private let header: HTTPHeaders = ["Authorization" : "KakaoAK 2f49cbfe2d302c9668abbffe4a6e6bc8"]
     
     public func loadLocationData(_ completion: @escaping (Location) -> Void) {
         self.completionHandler = completion
@@ -29,19 +29,38 @@ public final class LocationService: NSObject  {
         guard let urlString =  "https://dapi.kakao.com/v2/local/geo/coord2regioncode.json?x=\(coordinates.longitude)&y=\(coordinates.latitude)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
         guard let url = URL(string: urlString) else { return }
         
-        var request = URLRequest(url: url)
+        var request: URLRequest = URLRequest(url: url)
         request.httpMethod = "GET"
-        request.setValue(header, forHTTPHeaderField: "Authorization")
+        request.addValue("KakaoAK 2f49cbfe2d302c9668abbffe4a6e6bc8", forHTTPHeaderField: "Authorization")
+        request.addValue("application/json;charset=UTF-8", forHTTPHeaderField: "Content-Type")
+        print("request --> \(request)")
         
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            guard error == nil, let data = data else { return }
-            if let response = try? JSONDecoder().decode(LocationResponse.self, from: data) {
-                self.completionHandler?(Location(response: response))
-                print(response)
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard error == nil else {
+                print(error?.localizedDescription as Any)
+                return
+            }
+            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                print("Unvalid response")
+                return
+            }
+            guard let data = data else {
+                print("Data is missing!")
+                return
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                let data = try decoder.decode(LocationResponse.self, from: data)
+                self.completionHandler?(Location(response: data))
+                print("data --> \(data)")
+            } catch {
+                print(error.localizedDescription)
             }
         }
-        .resume()
+        task.resume()
     }
+    
 }
 
 extension LocationService: CLLocationManagerDelegate {

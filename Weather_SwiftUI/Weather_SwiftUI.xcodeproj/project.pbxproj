@@ -3,13 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C65FA1182686235B0085BD05 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65FA1172686235B0085BD05 /* LocationService.swift */; };
+		C61033262686E12A009E9594 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = C61033252686E12A009E9594 /* Alamofire */; };
 		C65FA11A268624C00085BD05 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65FA119268624C00085BD05 /* Location.swift */; };
 		C65FA11C26862DB20085BD05 /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65FA11B26862DB20085BD05 /* LocationViewModel.swift */; };
+		C66DC14626872B8200A9795A /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65FA1172686235B0085BD05 /* LocationService.swift */; };
 		C68F4E152674F305001E0A7F /* ClearBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68F4E142674F305001E0A7F /* ClearBackground.swift */; };
 		C6BD4FA226734388003C7B51 /* Weather_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BD4FA126734388003C7B51 /* Weather_SwiftUIApp.swift */; };
 		C6BD4FA426734388003C7B51 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BD4FA326734388003C7B51 /* WeatherView.swift */; };
@@ -41,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C61033262686E12A009E9594 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +108,9 @@
 			dependencies = (
 			);
 			name = Weather_SwiftUI;
+			packageProductDependencies = (
+				C61033252686E12A009E9594 /* Alamofire */,
+			);
 			productName = Weather_SwiftUI;
 			productReference = C6BD4F9E26734387003C7B51 /* Weather_SwiftUI.app */;
 			productType = "com.apple.product-type.application";
@@ -133,6 +138,9 @@
 				Base,
 			);
 			mainGroup = C6BD4F9526734387003C7B51;
+			packageReferences = (
+				C61033242686E12A009E9594 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = C6BD4F9F26734387003C7B51 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -159,7 +167,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C65FA1182686235B0085BD05 /* LocationService.swift in Sources */,
 				C6BD4FB526736FCF003C7B51 /* WeatherViewModel.swift in Sources */,
 				C65FA11A268624C00085BD05 /* Location.swift in Sources */,
 				C6BD4FB326734880003C7B51 /* Weather.swift in Sources */,
@@ -167,6 +174,7 @@
 				C6BD4FB126734427003C7B51 /* WeatherService.swift in Sources */,
 				C6BD4FA226734388003C7B51 /* Weather_SwiftUIApp.swift in Sources */,
 				C65FA11C26862DB20085BD05 /* LocationViewModel.swift in Sources */,
+				C66DC14626872B8200A9795A /* LocationService.swift in Sources */,
 				C68F4E152674F305001E0A7F /* ClearBackground.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -356,6 +364,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C61033242686E12A009E9594 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.4.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C61033252686E12A009E9594 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C61033242686E12A009E9594 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C6BD4F9626734387003C7B51 /* Project object */;
 }
