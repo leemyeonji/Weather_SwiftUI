@@ -9,6 +9,7 @@ import SwiftUI
 
 struct WeatherView: View {
     @ObservedObject var viewModel: WeatherViewModel
+    @ObservedObject var locationVM: LocationViewModel
     @State var appear = false
     
     var body: some View {
@@ -50,6 +51,13 @@ struct WeatherView: View {
                     .bold()
                     .padding(.vertical)
                     .frame(maxWidth: .infinity, alignment: .leading)
+                
+                Text(locationVM.regionName)
+                    .font(.title3)
+                    .bold()
+                    .padding(.vertical)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                
                 Spacer()
                 
                 VStack {
@@ -95,6 +103,6 @@ struct WeatherView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        WeatherView(viewModel: WeatherViewModel(weatherService: WeatherService()))
+        WeatherView(viewModel: WeatherViewModel(weatherService: WeatherService()), locationVM: LocationViewModel(locationService: LocationService()))
     }
 }

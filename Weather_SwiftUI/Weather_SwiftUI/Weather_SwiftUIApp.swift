@@ -12,8 +12,10 @@ struct Weather_SwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
             let weatherService = WeatherService()
+            let locationService = LocationService()
             let viewModel = WeatherViewModel(weatherService: weatherService)
-            WeatherView(viewModel: viewModel)
+            let locationVM = LocationViewModel(locationService: locationService)
+            WeatherView(viewModel: viewModel, locationVM: locationVM)
         }
     }
 }
