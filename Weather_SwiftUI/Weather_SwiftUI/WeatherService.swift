@@ -14,6 +14,8 @@ public final class WeatherService: NSObject {
     private let API_KEY = "2065655bc1761f2598fcb80a9f79d0c3"
     private var completionHandler: ((Weather) -> Void)?
     
+    public var localCityName: String?
+    
     public func loadWeatherData(_ completed: @escaping (Weather) -> Void) {
         self.completionHandler = completed
         locationManager.requestWhenInUseAuthorization()
@@ -25,7 +27,7 @@ public final class WeatherService: NSObject {
         locationManager.delegate = self
     }
     
-    //api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
+   
     public func makeDataRequest(forCoordinates coordinates: CLLocationCoordinate2D) {
         guard let urlString = "https://api.openweathermap.org/data/2.5/weather?lat=\(coordinates.latitude)&lon=\(coordinates.longitude)&appid=\(API_KEY)&units=metric".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
         guard let url = URL(string: urlString) else { return }
@@ -46,7 +48,18 @@ extension WeatherService: CLLocationManagerDelegate {
     public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.first else { return }
         makeDataRequest(forCoordinates: location.coordinate)
+        
+        guard let coor = manager.location?.coordinate else { return }
+        let findLocation = CLLocation(latitude: coor.latitude, longitude: coor.longitude)
+        let geoCoder = CLGeocoder()
+        let local = Locale(identifier: "Ko-kr")
+        geoCoder.reverseGeocodeLocation(findLocation, preferredLocale: local) { place, error in
+            if let address: [CLPlacemark] = place, let lastAddress = address.last {
+                self.localCityName = lastAddress.locality
+            }
+        }
     }
+    
     public func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Something went wrong: \(error.localizedDescription)")
     }

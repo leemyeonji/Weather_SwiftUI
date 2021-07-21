@@ -12,11 +12,12 @@ import SwiftUI
 public final class LocationService: NSObject  {
     private let locationManager = CLLocationManager()
     private var completionHandler: ((Location) -> Void)?
-    //private let header: HTTPHeaders = ["Authorization" : "KakaoAK 2f49cbfe2d302c9668abbffe4a6e6bc8"]
+   
     
     public func loadLocationData(_ completion: @escaping (Location) -> Void) {
         self.completionHandler = completion
         locationManager.requestWhenInUseAuthorization()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
     }
     
@@ -25,7 +26,7 @@ public final class LocationService: NSObject  {
         locationManager.delegate = self
     }
     
-    public func makeLocationDataRequest(forCoordinates coordinates: CLLocationCoordinate2D) {
+ /*   public func makeLocationDataRequest(forCoordinates coordinates: CLLocationCoordinate2D) {
         guard let urlString =  "https://dapi.kakao.com/v2/local/geo/coord2regioncode.json?x=\(coordinates.longitude)&y=\(coordinates.latitude)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
         guard let url = URL(string: urlString) else { return }
         
@@ -59,15 +60,29 @@ public final class LocationService: NSObject  {
             }
         }
         task.resume()
-    }
+    }*/
     
 }
 
 extension LocationService: CLLocationManagerDelegate {
     public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.first else { return }
-        makeLocationDataRequest(forCoordinates: location.coordinate)
+        guard let location = locations.last else { return }
+        //makeLocationDataRequest(forCoordinates: location.coordinate)
         print(location)
+        //36.34109942235541, 127.38834287331505
+        if (manager.location?.coordinate) != nil {
+            let findLocation : CLLocation = CLLocation(latitude: Double(36.34109942235541), longitude: Double(127.38834287331505))
+            let geoCoder: CLGeocoder = CLGeocoder()
+            let local: Locale = Locale(identifier: "Ko-kr")
+            geoCoder.reverseGeocodeLocation(findLocation, preferredLocale: local) { place, error in
+                if let address: [CLPlacemark] = place, let lastAddress = address.last {
+                    print("시: \(String(describing: lastAddress.administrativeArea))")
+                    print("도: \(String(describing: lastAddress.locality))")
+                    print("?: \(String(describing: lastAddress.location))")
+                }
+            }
+        }
+        
     }
     
     public func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

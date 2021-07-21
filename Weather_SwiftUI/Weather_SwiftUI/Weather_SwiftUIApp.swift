@@ -14,8 +14,8 @@ struct Weather_SwiftUIApp: App {
             let weatherService = WeatherService()
             let locationService = LocationService()
             let viewModel = WeatherViewModel(weatherService: weatherService)
-            let locationVM = LocationViewModel(locationService: locationService)
-            WeatherView(viewModel: viewModel, locationVM: locationVM)
+            let locationViewModel = LocationViewModel(locationService: locationService)
+            WeatherView(viewModel: viewModel, locationViewModel: locationViewModel)
         }
     }
 }
