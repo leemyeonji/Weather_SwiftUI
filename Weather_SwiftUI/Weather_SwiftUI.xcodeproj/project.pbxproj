@@ -24,6 +24,7 @@
 		C6BD4FB326734880003C7B51 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BD4FB226734880003C7B51 /* Weather.swift */; };
 		C6BD4FB526736FCF003C7B51 /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BD4FB426736FCF003C7B51 /* WeatherViewModel.swift */; };
 		C6D06D6926A72B0E00BA21F6 /* WeatherScene.scn in Resources */ = {isa = PBXBuildFile; fileRef = C6D06D6826A72B0E00BA21F6 /* WeatherScene.scn */; };
+		C6E5193C26A874E200FB1BFE /* prototype dae1.4.scn in Resources */ = {isa = PBXBuildFile; fileRef = C6E5193B26A874E200FB1BFE /* prototype dae1.4.scn */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		C6BD4FB226734880003C7B51 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		C6BD4FB426736FCF003C7B51 /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
 		C6D06D6826A72B0E00BA21F6 /* WeatherScene.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = WeatherScene.scn; sourceTree = "<group>"; };
+		C6E5193B26A874E200FB1BFE /* prototype dae1.4.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "prototype dae1.4.scn"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 				C661F6DE26A7096000A687C8 /* Cloudy.scn */,
 				C65FA11B26862DB20085BD05 /* LocationViewModel.swift */,
 				C68F4E142674F305001E0A7F /* ClearBackground.swift */,
+				C6E5193B26A874E200FB1BFE /* prototype dae1.4.scn */,
 				C6BD4FB026734427003C7B51 /* WeatherService.swift */,
 				C65FA1172686235B0085BD05 /* LocationService.swift */,
 				C6BD4FA5267343A0003C7B51 /* Assets.xcassets */,
@@ -171,6 +174,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6BD4FA9267343A0003C7B51 /* Preview Assets.xcassets in Resources */,
+				C6E5193C26A874E200FB1BFE /* prototype dae1.4.scn in Resources */,
 				C661F6DF26A7096000A687C8 /* Cloudy.scn in Resources */,
 				C661F6E326A712F800A687C8 /* prototype.obj in Resources */,
 				C661F6E126A7116100A687C8 /* prototype.usdz in Resources */,
